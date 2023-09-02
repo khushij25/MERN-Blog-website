@@ -1,25 +1,26 @@
 import React from "react";
+import { formatISO9075 } from "date-fns";
 
-export default function Post() {
+export default function Post({
+  title,
+  summary,
+  cover,
+  content,
+  createdAt,
+  author,
+}) {
   return (
     <div className="post">
       <div className="image">
-        <img
-          src="https://idronline.org/wp-content/uploads/2023/08/pipes.jpg"
-          alt=""
-        />
+        <img src={"http://localhost:4000/" + cover} alt="" />
       </div>
       <div className="texts">
-        <h2>Prioritising repair in India’s cities</h2>
+        <h2>{title}</h2>
         <p className="info">
-          <a className="author">Dawid Okadw</a>
-          <time>2023-01-06 16:48</time>
+          <a className="author">{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className="summary">
-          The lack of state-led urban repair and maintenance cycles is hampering
-          the delivery of services such as water and electricity, especially in
-          low-income areas. Here's what needs to change.
-        </p>
+        <p className="summary">{summary}</p>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useInRouterContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
 export default function Header() {
@@ -27,7 +27,7 @@ export default function Header() {
   return (
     <header>
       <Link to="/" className="logo">
-        MyBlog
+        Tech-Bloggers
       </Link>
       <nav>
         {username && (
